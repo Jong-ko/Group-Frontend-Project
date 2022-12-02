@@ -1,6 +1,5 @@
 body {
     justify-content: center;
-    /* /not to go over viewport height */
     margin: 0; 
     background-color: #222;
 }
