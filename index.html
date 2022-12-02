@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-Jeremy
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
@@ -19,19 +18,17 @@ Jeremy
         <nav class="navbar navbar-light bg-light justify-content-between">
             <a class="navbar-brand">Weather and Music Mood app!
             </a>
-            <form class="form-inline">
-              <input class="form-control mr-sm-2" type="search" placeholder="Search for a city" aria-label="Search">
-              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Location Search</button>
-            </form>
+            <div class="searchbar">
+              <form  id="form">
+                  <input type="text" placeholder="Search" class="search">
+            </div>
           </nav>
 
         <div class="d-flex flex-column justify-content-center">
             <div class="p-5 border text-center">
                 <div class="card" style="width: 18rem;">
                     <div class="card-body">
-                      <h5 class="card-title">Location</h5>
-                      <h6 class="card-subtitle mb-2 text-muted"></h6>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                      <div id="weather">Search for a city</div>
                     </div>
                   </div>
                   
