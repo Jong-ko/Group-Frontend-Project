@@ -1,0 +1,50 @@
+<<<<<<< Updated upstream
+=======
+body {
+    background-image: url("https://res.cloudinary.com/dxdvkore7/video/upload/v1670095767/video_3_l1jit0.mp4");
+    background-size: cover;
+    margin: 0; 
+    background-color: rgb(255, 255, 255);
+    padding-top: 3rem;
+
+}
+
+.card {
+    background-color:#eaeaea81;
+    font:black  ;
+    border-color: transparent;
+
+}
+
+#ytvideo {
+    background-color: #eaeaea5d;
+   
+   
+}
+
+.playlist-image {
+    transition: 0.2s all;
+}
+
+.playlist-image:active {
+    transform: scale(0.98);
+}
+.playlist-container {
+    justify-content: center;
+    display: flex;
+}
+
+
+
+
+video {
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+
+}
+
+>>>>>>> Stashed changes
