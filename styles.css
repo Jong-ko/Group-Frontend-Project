@@ -1,0 +1,14 @@
+body {
+    justify-content: center;
+    margin: 0; 
+    background-color: #222;
+}
+
+.card {
+    background-color:#eaeaea;
+
+}
+
+#ytvideo {
+    background-color: #eaeaea;
+}
