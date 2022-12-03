@@ -51,7 +51,7 @@ async function fetchPlaylist(searchTerm) {
     
     try {
         //fetch playlist data based on weather search term
-        const results = await fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&q=${searchTerm}%20weather%20music&order=relevance&type=playlist&maxResults=10&key=AIzaSyCt8cEXlP7DCMHJHf9QLrO_I30lZTyxZNc`);
+        const results = await fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&q=${searchTerm}%20weather%20music&order=relevance&type=video&maxResults=10&videoEmbeddable=true&regionCode=us&key=AIzaSyCt8cEXlP7DCMHJHf9QLrO_I30lZTyxZNc`);
         const playListData = await results.json();
         console.log(playListData);
         let playList = document.getElementById("playlist-list");
@@ -61,13 +61,13 @@ async function fetchPlaylist(searchTerm) {
             playList.innerHTML += `<li class="list-group-item d-flex justify-content-between align-items-start">
                 <div class="ms-2 me-auto">
                     <div class="fw-bold">${playListData.items[i].snippet.title}</div>
-                    <button><img class="playlist-image" src="${playListData.items[i].snippet.thumbnails.default.url}" data-id="${playListData.items[i].id.playlistId}"></button>
+                    <button><img class="playlist-image" src="${playListData.items[i].snippet.thumbnails.default.url}" data-id="${playListData.items[i].id.videoId}"></button>
                     ${playListData.items[i].snippet.description}
                 </div>
             </li>`;
         }
         //call player display function with first playlist returned
-        setPlayer(playListData.items[0].id.playlistId);
+        setPlayer(playListData.items[0].id.videoId);
     } catch (error) {
         //display error message if there are any issues in code above
         console.log("Something went wrong fetching playlist API", error);
@@ -75,8 +75,8 @@ async function fetchPlaylist(searchTerm) {
 }
 
 //Function that displays an embedded youtube player with given playlist
-function setPlayer(playListID) {
-    document.getElementById("player").innerHTML = `<iframe width="560" height="315" src="https://www.youtube.com/embed?listType=playlist&list=${playListID}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+function setPlayer(videoID) {
+    document.getElementById("player").innerHTML = `<iframe width="560" height="315" src="https://www.youtube.com/embed/${videoID}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
 }
 
 
