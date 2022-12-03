@@ -12,3 +12,11 @@ body {
 #ytvideo {
     background-color: #eaeaea;
 }
+
+.playlist-image {
+    transition: 0.2s all;
+}
+
+.playlist-image:active {
+    transform: scale(0.98);
+}
