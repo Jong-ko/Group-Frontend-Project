@@ -15,11 +15,10 @@ form.addEventListener("submit", (e) => {
 
 //Function that gets weather data from api and displays weather information based on city submitted in form
 async function fetchWeather(x) {
-  const citySearch = document.getElementsByClassName("search")[0].value;
-
+//   const citySearch = document.getElementsByClassName("search")[0].value;
   try {
     const results = await fetch(
-      `https://api.openweathermap.org/data/2.5/weather?q=${x}&appid=c7dbf73d45d5d81e77ec919553791f1f&units=imperial`
+      `https://api.openweathermap.org/data/2.5/weather?q=${citySearch}&appid=c7dbf73d45d5d81e77ec919553791f1f&units=imperial`
     );
     const weatherData = await results.json();
     console.log(weatherData);
@@ -89,25 +88,15 @@ async function citysuggest() {
       `http://api.openweathermap.org/geo/1.0/direct?q=${citySearch}&limit=5&appid=66f86253ffe193138c9b2af78822fd3e`
     );
     const citySearchJson = await results.json();
-    console.log(citySearchJson);
+    // console.log(citySearchJson);
     // If function if more then one city is found
     if (citySearchJson.length > 1) {
-        // Insert Suggestions Box
-    //     let suggestionsBox = document.getElementById("citySuggestionsBox");
-    //     suggestionsBox.innerhtml = `
-    //     <div class="p-5 border text-center">
-    //     <div class="card" style="width: 18rem;">
-    //         <div class="card-body">
-    //           <div id="citySuggestionsList"></div>
-    //         </div>
-    //       </div>   
-    // </div>`
       // Loop to insert city suggestions into html
       for (let i = 0; i < citySearchJson.length; i++) {
         let suggestionsList = document.getElementById("citySuggestionsBox");
         let cityoption = `${citySearch}, ${citySearchJson[i].state}, ${citySearchJson[i].country}`
         suggestionsList.innerHTML += `
-                      <a href="javascript:fetchWeather(${cityoption})">${cityoption}</a><br>`;
+                      <a href="javascript:fetchWeather(${citySearch})">${cityoption}</a><br>`;
       }
     }
     // Else statement to directly input city into weather call if only 1 city is found
