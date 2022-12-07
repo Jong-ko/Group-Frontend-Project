@@ -85,7 +85,7 @@ async function citysuggest() {
   const citySearch = document.getElementsByClassName("search")[0].value;
   try {
     const results = await fetch(
-      `http://api.openweathermap.org/geo/1.0/direct?q=${citySearch}&limit=5&appid=66f86253ffe193138c9b2af78822fd3e`
+      `https://api.openweathermap.org/geo/1.0/direct?q=${citySearch}&limit=5&appid=66f86253ffe193138c9b2af78822fd3e`
     );
     const citySearchJson = await results.json();
     let suggestionsList = document.getElementById("citySuggestionsBox");
