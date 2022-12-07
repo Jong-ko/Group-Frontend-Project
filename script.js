@@ -33,7 +33,7 @@ async function fetchWeather(city) {
 
     weatherElement.innerHTML =
       ///weather description
-      `<p> ${weatherDescription}. <br>
+      `<p class="card-text"> ${weatherDescription}. <br>
         The current temperature in ${cityName} is ${currentTemp}°F <br>
         with humidity levels of ${humidity}% <br>
         and wind speeds of ${windSpeed} m/s`;
@@ -88,11 +88,12 @@ async function citysuggest() {
       `http://api.openweathermap.org/geo/1.0/direct?q=${citySearch}&limit=5&appid=66f86253ffe193138c9b2af78822fd3e`
     );
     const citySearchJson = await results.json();
+    let suggestionsList = document.getElementById("citySuggestionsBox");
+    suggestionsList.innerHTML = ``
     // If function if more then one city is found
     if (citySearchJson.length > 1) {
       // Loop to insert city suggestions into html
       for (let i = 0; i < citySearchJson.length; i++) {
-        let suggestionsList = document.getElementById("citySuggestionsBox");
         let cityoption = `${citySearch}, ${citySearchJson[i].state}, ${citySearchJson[i].country}`;
         suggestionsList.innerHTML += `
             <a href="javascript:fetchWeather('${cityoption}')">${cityoption}</a><br>`;
