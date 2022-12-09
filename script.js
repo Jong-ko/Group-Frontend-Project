@@ -49,7 +49,7 @@ async function fetchPlaylist(searchTerm) {
   try {
     //fetch playlist data based on weather search term
     const results = await fetch(
-      `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${searchTerm}%20weather%20music&order=relevance&type=video&maxResults=10&videoEmbeddable=true&regionCode=us&key=AIzaSyAQyuGgZ87LsqoGIuH2xvDDANd0mrVpv0A`
+      `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${searchTerm}%20weather%20music&order=relevance&type=video&maxResults=10&videoEmbeddable=true&regionCode=us&key=AIzaSyBLu9aikLuuSZWHvqwSRuiJ1oKfjTK_ig8`
     );
     const playListData = await results.json();
     console.log(playListData);
